@@ -21,6 +21,7 @@ const  App = () => {
     <>
     <Nav/>
     <Routes>
+      {/* all routes */}
     <Route path="/" element={<Home /> } />
     <Route path="/merge" element={ <Merge/>} />
     <Route path="/split" element={ <Split/>} />
