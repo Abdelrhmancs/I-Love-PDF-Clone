@@ -20,8 +20,8 @@ const Nav = () => {
           </div>
         
         <div className="flex  w-[450px] items-center justify-end  font-medium">
-        <button className=" m-3 text-[14px] hover:text-[#e5322d] transition duration-300">Login</button>
-        <button className=" me-[40px] bg-[#e5322d] rounded-lg p-2 text-[15px] text-white hover:bg-[#a12f2b] transtion duration-300">Sign up</button>
+        <button onClick={()=>navigate('/login')} className=" m-3 text-[14px] hover:text-[#e5322d] transition duration-300">Login</button>
+        <button onClick={()=>navigate('/register')} className=" me-[40px] bg-[#e5322d] rounded-lg p-2 text-[15px] text-white hover:bg-[#a12f2b] transtion duration-300">Sign up</button>
         </div>
       </div>
     </>
