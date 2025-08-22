@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace I_love_pdf.Dto
 {
-    public class RegisterDto :
+    public class RegisterDto 
     {
         [Required]
         public string Name { get; set; }
