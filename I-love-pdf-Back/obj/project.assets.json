@@ -2470,11 +2470,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Backend\\I-love-pdf\\I-love-pdf.csproj",
+      "projectUniqueName": "D:\\Backend\\I-Love-PDF-Clone\\I-love-pdf-Back\\I-love-pdf.csproj",
       "projectName": "I-love-pdf",
-      "projectPath": "D:\\Backend\\I-love-pdf\\I-love-pdf.csproj",
+      "projectPath": "D:\\Backend\\I-Love-PDF-Clone\\I-love-pdf-Back\\I-love-pdf.csproj",
       "packagesPath": "C:\\Users\\Abood\\.nuget\\packages\\",
-      "outputPath": "D:\\Backend\\I-love-pdf\\obj\\",
+      "outputPath": "D:\\Backend\\I-Love-PDF-Clone\\I-love-pdf-Back\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
