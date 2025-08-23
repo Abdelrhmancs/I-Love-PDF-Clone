@@ -22,6 +22,15 @@ namespace I_love_pdf
             });
             builder.Services.AddControllers();
 
+            builder.Services.AddCors(corsOptions =>
+            {
+                corsOptions.AddPolicy("myPolicy", corsPolicyBuilder =>
+                {
+                    corsPolicyBuilder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+
+            });
+
             // add identity 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
@@ -60,6 +69,9 @@ namespace I_love_pdf
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors("myPolicy");
+
             app.UseAuthentication();
             app.UseAuthorization();
 
