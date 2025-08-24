@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useRef } from "react";
 import { useDropzone } from "react-dropzone";
 
-const Merge = ({ title, description }) => {
+const Merge = () => {
   // hooks
   const [files, setFiles] = useState([]);
   const fileInputRef = useRef(null);
@@ -81,14 +81,14 @@ const Merge = ({ title, description }) => {
           <input {...getInputProps()} />
 
           <div className="flex flex-col justify-center items-center p-3">
-            <h1 className="font-bold text-[42px] text-[#33333b]">{title}</h1>
-            <p className="text-[22px] text-gray-700">{description}</p>
+            <h1 className="font-bold text-[42px] text-[#33333b]">Merge PDF files</h1>
+            <p className="text-[22px] text-gray-700">Combine PDFs in the order you want with the easiest PDF merger available.</p>
           </div>
 
           <div className="mt-5 flex flex-col justify-center items-center">
             <button
               onClick={handleAddClick}
-              className="mt-[45px] text-[24px] w-[330px] h-[80px] text-[#eee] font-semibold bg-[#e5322d] rounded-lg"
+              className="mt-[45px] text-[24px] w-[330px] h-[80px] text-[#eee] font-semibold bg-[#e5322d] transition duration-300 hover:bg-[#a12f2b]  rounded-lg"
             >
               Select PDF files
             </button>
