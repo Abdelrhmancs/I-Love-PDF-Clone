@@ -75,3 +75,8 @@ D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\obj\Debug\net6.0\refint\I-love-pdf.d
 D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\obj\Debug\net6.0\I-love-pdf.pdb
 D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\obj\Debug\net6.0\I-love-pdf.genruntimeconfig.cache
 D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\obj\Debug\net6.0\ref\I-love-pdf.dll
+D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\bin\Debug\net6.0\PdfSharpCore.dll
+D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\bin\Debug\net6.0\ICSharpCode.SharpZipLib.dll
+D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\bin\Debug\net6.0\SixLabors.Fonts.dll
+D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\bin\Debug\net6.0\SixLabors.ImageSharp.dll
+D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\bin\Debug\net6.0\de\PdfSharpCore.resources.dll

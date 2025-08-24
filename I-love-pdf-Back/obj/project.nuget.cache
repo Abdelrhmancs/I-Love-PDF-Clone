@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gvyjQd/R+huosJmIdmYwXwc0DWYDeNZdCb9lEsYmYAcjgO0BVpnGx80cDuCyARZmU0x6KaBGMjv54seYHhEMdA==",
+  "dgSpecHash": "sAut8lYcYabNUBHMTJsiPPdDkFEZ34o8SGLDZQSHp5pWQArP71slN0ZT/esa4eWWqMgKym3BUTaNCSKv1iH6JQ==",
   "success": true,
   "projectFilePath": "D:\\Backend\\I-Love-PDF-Clone\\I-love-pdf-Back\\I-love-pdf.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,10 @@
     "C:\\Users\\Abood\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\Abood\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Abood\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Abood\\.nuget\\packages\\pdfsharpcore\\1.3.67\\pdfsharpcore.1.3.67.nupkg.sha512",
+    "C:\\Users\\Abood\\.nuget\\packages\\sharpziplib\\1.4.2\\sharpziplib.1.4.2.nupkg.sha512",
+    "C:\\Users\\Abood\\.nuget\\packages\\sixlabors.fonts\\1.0.0-beta17\\sixlabors.fonts.1.0.0-beta17.nupkg.sha512",
+    "C:\\Users\\Abood\\.nuget\\packages\\sixlabors.imagesharp\\1.0.4\\sixlabors.imagesharp.1.0.4.nupkg.sha512",
     "C:\\Users\\Abood\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\Abood\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\Abood\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
