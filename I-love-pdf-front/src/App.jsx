@@ -17,6 +17,10 @@ import Watermark from "./components/Content_Of_Operations/Wstermark";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Layout from "./components/Layout";
+// import { pdfjs } from "react-pdf";
+// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
+
 const App = () => {
   return (
     <>
