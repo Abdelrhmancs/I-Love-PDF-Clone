@@ -118,7 +118,7 @@ const Merge = () => {
           {files.length != 0 && (
             <button
               onClick={uploadFile}
-              className="mt-[45px] text-[13px]  w-[80px] h-[40px] text-[#eee] font-semibold bg-[#e5322d] rounded-lg"
+              className="mt-[45px] text-[13px]  w-[80px] h-[40px] text-[#eee] font-semibold bg-blue-600 rounded-lg"
             >
               Download
             </button>
