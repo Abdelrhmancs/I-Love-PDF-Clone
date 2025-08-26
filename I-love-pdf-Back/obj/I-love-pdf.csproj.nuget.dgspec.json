@@ -45,13 +45,25 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Aspose.PDF": {
+              "target": "Package",
+              "version": "[6.9.0, )"
+            },
             "Aspose.Words": {
               "target": "Package",
               "version": "[10.8.0, )"
             },
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.104.2, )"
+            },
             "FreeSpire.PDF": {
               "target": "Package",
               "version": "[6.10.6, )"
+            },
+            "Magick.NET-Q8-AnyCPU": {
+              "target": "Package",
+              "version": "[6.8.9.2, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -86,6 +98,10 @@
             "PdfiumViewer": {
               "target": "Package",
               "version": "[2.13.0, )"
+            },
+            "SkiaSharp": {
+              "target": "Package",
+              "version": "[3.119.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
