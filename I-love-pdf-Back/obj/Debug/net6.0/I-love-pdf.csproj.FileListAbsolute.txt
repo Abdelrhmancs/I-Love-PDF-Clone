@@ -123,3 +123,7 @@ D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\bin\Debug\net6.0\runtimes\tizen-arme
 D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\bin\Debug\net6.0\runtimes\tizen-x86\native\libSkiaSharp.so
 D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\bin\Debug\net6.0\runtimes\win-x64\native\libSkiaSharp.dll
 D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\bin\Debug\net6.0\runtimes\win-x86\native\libSkiaSharp.dll
+D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\bin\Debug\net6.0\Aspose.Words.dll
+D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\bin\Debug\net6.0\PdfiumViewer.dll
+D:\Backend\I-Love-PDF-Clone\I-love-pdf-Back\bin\Debug\net6.0\nl\PdfiumViewer.resources.dll

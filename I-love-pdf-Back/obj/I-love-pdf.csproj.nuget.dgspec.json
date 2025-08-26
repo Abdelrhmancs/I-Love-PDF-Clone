@@ -45,6 +45,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Aspose.Words": {
+              "target": "Package",
+              "version": "[10.8.0, )"
+            },
             "FreeSpire.PDF": {
               "target": "Package",
               "version": "[6.10.6, )"
@@ -79,9 +83,17 @@
               "target": "Package",
               "version": "[1.3.67, )"
             },
+            "PdfiumViewer": {
+              "target": "Package",
+              "version": "[2.13.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[6.6.2, )"
             },
             "itext7": {
               "target": "Package",
