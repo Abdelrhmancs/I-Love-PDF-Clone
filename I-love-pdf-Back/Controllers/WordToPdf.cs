@@ -22,7 +22,7 @@ namespace I_love_pdf.Controllers
 
             try
             {
-                // المستند النهائي اللي هيحتوي كل الملفات
+             
                 var finalDoc = new Document();
                 finalDoc.RemoveAllChildren();
 
@@ -34,7 +34,6 @@ namespace I_love_pdf.Controllers
 
                     var doc = new Document(fileStream, new LoadOptions());
 
-                    // أدمج المستندات
                     finalDoc.AppendDocument(doc, ImportFormatMode.KeepSourceFormatting);
                 }
 
