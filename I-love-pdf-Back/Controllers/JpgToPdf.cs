@@ -14,11 +14,11 @@ namespace I_love_pdf.Controllers
             if (files == null || files.Count == 0)
                 return BadRequest("Please upload images.");
 
-            using var document = new PdfDocument();
+            var document = new PdfDocument();
 
             foreach (var file in files)
             {
-                using var ms = new MemoryStream();
+                var ms = new MemoryStream();
                 file.CopyTo(ms);
                 ms.Position = 0;
 
@@ -27,11 +27,11 @@ namespace I_love_pdf.Controllers
                 page.Width = image.PointWidth;
                 page.Height = image.PointHeight;
 
-                using var gfx = XGraphics.FromPdfPage(page);
+                var gfx = XGraphics.FromPdfPage(page);
                 gfx.DrawImage(image, 0, 0, page.Width, page.Height);
             }
 
-            using var output = new MemoryStream();
+            var output = new MemoryStream();
             document.Save(output, false);
 
             return File(output.ToArray(), "application/pdf", "mergedImages.pdf");
