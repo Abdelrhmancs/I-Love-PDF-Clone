@@ -17,6 +17,7 @@ import Watermark from "./components/Content_Of_Operations/Wstermark";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Layout from "./components/Layout";
+import PageNumber from "./components/Content_Of_Operations/PageNumber";
 // import { pdfjs } from "react-pdf";
 // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/pdftoppt" element={<Pdf_to_ppt />} />
           <Route path="/exceltopdf" element={<Excel_to_pdf />} />
           <Route path="/watermark" element={<Watermark />} />
+          <Route path="/pagenumber" element={<PageNumber />} />
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
