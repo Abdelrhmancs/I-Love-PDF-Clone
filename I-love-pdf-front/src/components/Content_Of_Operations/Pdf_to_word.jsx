@@ -13,7 +13,7 @@ const Pdf_to_word = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5147/api/PdfToWord/convert-to-word",
+        "http://localhost:5147/api/PdfToWord/convert-pdf-to-word",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -21,7 +21,7 @@ const Pdf_to_word = () => {
         }
       );
 
- 
+
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
@@ -30,10 +30,9 @@ const Pdf_to_word = () => {
       link.click();
       link.remove();
 
-     
       setSuccess(true);
     } catch (error) {
-      console.error("Error converting file:", error);
+      alert("Error converting file:", error);
     }
   };
 
