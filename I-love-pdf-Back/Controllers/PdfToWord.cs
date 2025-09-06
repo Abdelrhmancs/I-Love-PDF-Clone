@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Spire.Pdf;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 namespace I_love_pdf.Controllers
@@ -9,30 +9,56 @@ namespace I_love_pdf.Controllers
     public class PdfToWord : ControllerBase
     {
 
-        [HttpPost("convert-to-word")]
+        [HttpPost("convert-pdf-to-word")]
         public async Task<IActionResult> ConvertToWord(List<IFormFile> files)
         {
             if (files == null || files.Count == 0)
                 return BadRequest("Please upload at least one PDF file.");
 
-            var file = files.First(); 
+            var file = files.First();
+            var pythonScript = @"D:\Backend\I-Love-PDF-Clone\Pdf-Scripts";
 
-            using var memoryStream = new MemoryStream();
-            await file.CopyToAsync(memoryStream);
-            memoryStream.Position = 0;
+            var uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "uploadFiles");
+            if (!Directory.Exists(uploadFolder))
+            {
+                Directory.CreateDirectory(uploadFolder);
+            }
 
-            var pdf = new Spire.Pdf.PdfDocument();
-            pdf.LoadFromStream(memoryStream);
+            var inputPathFile = Path.Combine(uploadFolder, file.FileName);
+            var outputPathFile = Path.Combine(uploadFolder, "converted" + Path.GetFileNameWithoutExtension(file.FileName) + "docx");
 
-            using var outputStream = new MemoryStream();
-            pdf.SaveToStream(outputStream, Spire.Pdf.FileFormat.DOCX);
-            outputStream.Position = 0;
+            var stream = new FileStream(inputPathFile, FileMode.Create);
+            await file.CopyToAsync(stream);
+            stream.Close();
 
-            return File(
-                outputStream.ToArray(),
-                "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                Path.GetFileNameWithoutExtension(file.FileName) + ".docx"
-            );
+            // script 
+            var filepath = @"D:\Backend\I-Love-PDF-Clone\Pdf-Scripts\PdfToWord.py";
+            var psi = new ProcessStartInfo
+            {
+                FileName = "Python",
+                Arguments = $"\"{filepath}\" \"{inputPathFile}\" \"{outputPathFile}\"",
+                WorkingDirectory = pythonScript,
+                RedirectStandardError = true,
+                RedirectStandardOutput = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+
+            using (var process = Process.Start(psi))
+            {
+                await process.WaitForExitAsync();
+                var error = process.StandardError.ReadToEnd();
+                if (process.ExitCode != 0)
+                {
+                    return StatusCode(500, "Converting failed: " + error);
+                }
+            }
+            var fileBytes = await System.IO.File.ReadAllBytesAsync(outputPathFile);
+
+            return File(fileBytes, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "converted_" + Path.GetFileNameWithoutExtension(file.FileName) + "docx");
+
+
+
         }
 
     }
