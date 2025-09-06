@@ -1,7 +1,5 @@
-﻿using Aspose.Words;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 namespace I_love_pdf.Controllers
 {
     [Route("api/[controller]")]
@@ -9,44 +7,54 @@ namespace I_love_pdf.Controllers
     public class WordToPdf : ControllerBase
     {
 
-        [HttpPost("convert")]
-        [Consumes("multipart/form-data")]
-        [SwaggerOperation(
-             Summary = "Convert Word(s) to a single PDF",
-             Description = "Upload one or multiple Word files (.doc/.docx) and get a merged PDF."
-         )]
+        [HttpPost("convert-word-to-pdf")]
         public async Task<IActionResult> ConvertToPdf([FromForm] List<IFormFile> files)
         {
             if (files == null || files.Count == 0)
                 return BadRequest("Please upload at least one Word file.");
 
-            try
+            var file = files.First();
+            var pythonScript = @"D:\Backend\I-Love-PDF-Clone\Pdf-Scripts";
+
+            var uploadFolder = Path.Combine(Directory.GetCurrentDirectory(),"uploadFiles");
+            if (!Directory.Exists(uploadFolder))
             {
-             
-                var finalDoc = new Document();
-                finalDoc.RemoveAllChildren();
+                Directory.CreateDirectory(uploadFolder);
+            }
 
-                foreach (var file in files)
+            var inputFile = Path.Combine(uploadFolder, file.FileName);
+            var outputFile = Path.Combine(uploadFolder, "topdf"+ Path.GetFileNameWithoutExtension(file.FileName)+".pdf");
+
+            var stream = new FileStream(inputFile, FileMode.Create);
+            await file.CopyToAsync(stream);
+            stream.Close();
+
+            //script
+            var filepath = @"D:\Backend\I-Love-PDF-Clone\Pdf-Scripts\WordToPdf.py";
+            var psi = new ProcessStartInfo
+            {
+                FileName = "Python",
+                Arguments = $"\"{filepath}\" \"{inputFile}\" \"{outputFile}\"",
+                WorkingDirectory = pythonScript,
+                RedirectStandardError = true,
+                RedirectStandardOutput = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+
+            using(var process= Process.Start(psi))
+            {
+                await process.WaitForExitAsync();
+                var error = process.StandardError.ReadToEnd();
+                if(process.ExitCode != 0)
                 {
-                    using var fileStream = new MemoryStream();
-                    await file.CopyToAsync(fileStream);
-                    fileStream.Position = 0;
-
-                    var doc = new Document(fileStream, new LoadOptions());
-
-                    finalDoc.AppendDocument(doc, ImportFormatMode.KeepSourceFormatting);
+                    return StatusCode(500, "faild :" + error);
                 }
 
-                using var outputStream = new MemoryStream();
-                finalDoc.Save(outputStream, SaveFormat.Pdf);
-                outputStream.Position = 0;
+            }
+            var fileBytes = await System.IO.File.ReadAllBytesAsync(outputFile);
+            return File(fileBytes, "application/pdf", Path.GetFileNameWithoutExtension(file.FileName) + ".pdf");
 
-                return File(outputStream.ToArray(), "application/pdf", "Converted.pdf");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error converting files: {ex.Message}");
-            }
         }
     }
 }
