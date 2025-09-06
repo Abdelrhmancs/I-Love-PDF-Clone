@@ -10,7 +10,7 @@ def PdfToWord(inputFile , outFile):
         print("success")
 
     except Exception as e :
-        print("error "+e)    
+        print("error ",e)    
 
 
 
