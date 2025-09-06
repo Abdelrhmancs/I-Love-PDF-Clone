@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Aspose.Words;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Diagnostics;
+
 namespace I_love_pdf.Controllers
 {
     [Route("api/[controller]")]
@@ -23,7 +27,7 @@ namespace I_love_pdf.Controllers
             }
 
             var inputFile = Path.Combine(uploadFolder, file.FileName);
-            var outputFile = Path.Combine(uploadFolder, "topdf"+ Path.GetFileNameWithoutExtension(file.FileName)+".pdf");
+            var outputFile = Path.Combine(uploadFolder, "topdf_"+ Path.GetFileNameWithoutExtension(file.FileName) + "pdf");
 
             var stream = new FileStream(inputFile, FileMode.Create);
             await file.CopyToAsync(stream);
@@ -53,7 +57,7 @@ namespace I_love_pdf.Controllers
 
             }
             var fileBytes = await System.IO.File.ReadAllBytesAsync(outputFile);
-            return File(fileBytes, "application/pdf", Path.GetFileNameWithoutExtension(file.FileName) + ".pdf");
+            return File(fileBytes, "application/pdf", Path.GetFileNameWithoutExtension(file.FileName) + "pdf");
 
         }
     }
