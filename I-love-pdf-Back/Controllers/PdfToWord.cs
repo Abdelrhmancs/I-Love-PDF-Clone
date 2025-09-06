@@ -25,7 +25,7 @@ namespace I_love_pdf.Controllers
             }
 
             var inputPathFile = Path.Combine(uploadFolder, file.FileName);
-            var outputPathFile = Path.Combine(uploadFolder, "converted" + Path.GetFileNameWithoutExtension(file.FileName) + "docx");
+            var outputPathFile = Path.Combine(uploadFolder, "converted" + Path.GetFileNameWithoutExtension(file.FileName) + ".docx");
 
             var stream = new FileStream(inputPathFile, FileMode.Create);
             await file.CopyToAsync(stream);
@@ -55,11 +55,10 @@ namespace I_love_pdf.Controllers
             }
             var fileBytes = await System.IO.File.ReadAllBytesAsync(outputPathFile);
 
-            return File(fileBytes, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "converted_" + Path.GetFileNameWithoutExtension(file.FileName) + "docx");
+            return File(fileBytes, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "converted_" + Path.GetFileNameWithoutExtension(file.FileName) + ".docx");
 
 
 
         }
-
     }
 }
