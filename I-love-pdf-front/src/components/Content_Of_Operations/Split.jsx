@@ -56,7 +56,7 @@ const Split = () => {
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
-          responseType: "blob", // <<< لازم
+          responseType: "blob",
         }
       );
   

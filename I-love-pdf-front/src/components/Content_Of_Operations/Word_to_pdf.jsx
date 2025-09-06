@@ -12,7 +12,7 @@ const Word_to_pdf = () =>{
   
       try {
         const response = await axios.post(
-          "http://localhost:5147/api/WordToPdf/convert",
+          "http://localhost:5147/api/WordToPdf/convert-word-to-pdf",
           formData,
           {
             headers: { "Content-Type": "multipart/form-data" },
@@ -20,7 +20,6 @@ const Word_to_pdf = () =>{
           }
         );
   
-   
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement("a");
         link.href = url;
@@ -32,7 +31,7 @@ const Word_to_pdf = () =>{
        
         setSuccess(true);
       } catch (error) {
-        console.error("Error converting file:", error);
+       alert("Error converting file: ", error);
       }
     };
   
