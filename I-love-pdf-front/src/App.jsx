@@ -18,9 +18,10 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Layout from "./components/Layout";
 import PageNumber from "./components/Content_Of_Operations/PageNumber";
+import Rotate from "./components/Content_Of_Operations/Rotate";
+
 // import { pdfjs } from "react-pdf";
 // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-
 
 const App = () => {
   return (
@@ -41,6 +42,7 @@ const App = () => {
           <Route path="/exceltopdf" element={<Excel_to_pdf />} />
           <Route path="/watermark" element={<Watermark />} />
           <Route path="/pagenumber" element={<PageNumber />} />
+          <Route path="/rotate" element={<Rotate />} />
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
