@@ -1,0 +1,40 @@
+from PyPDF2 import PdfReader, PdfWriter
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+import io, sys
+
+def Watermark(inputFile, outputFile, text):
+    try:
+        packet = io.BytesIO()
+        c = canvas.Canvas(packet, pagesize=letter)
+        c.setFont("Helvetica-Bold", 50)
+        c.setFillGray(0.8)
+        c.saveState()
+        c.translate(300, 400)
+        c.rotate(45)
+        c.drawString(0, 0, text)
+        c.restoreState()
+        c.save()
+
+        packet.seek(0)
+        watermark_pdf = PdfReader(packet)
+        watermark_page = watermark_pdf.pages[0]
+
+        reader = PdfReader(inputFile)
+        writer = PdfWriter()
+
+        for page in reader.pages:
+            page.merge_page(watermark_page)
+            writer.add_page(page)
+
+        with open(outputFile, "wb") as f:
+            writer.write(f)
+
+    except Exception as e:
+        print("Error:", e)
+
+if __name__ == "__main__":
+    inputFile = sys.argv[1]
+    outputFile = sys.argv[2]
+    text = sys.argv[3]
+    Watermark(inputFile, outputFile, text)
