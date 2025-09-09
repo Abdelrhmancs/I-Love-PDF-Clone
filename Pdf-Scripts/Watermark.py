@@ -6,13 +6,18 @@ import io, sys
 def Watermark(inputFile, outputFile, text):
     try:
         packet = io.BytesIO()
-        c = canvas.Canvas(packet, pagesize=letter)
+        reader = PdfReader(inputFile)
+        first_page = reader.pages[0]
+        w = float(first_page.mediabox.width)
+        h = float(first_page.mediabox.height)
+
+        c = canvas.Canvas(packet, pagesize=(w,h))
         c.setFont("Helvetica-Bold", 50)
         c.setFillGray(0.8)
         c.saveState()
-        c.translate(300, 400)
+        c.translate(w/2, h/2)
         c.rotate(45)
-        c.drawString(0, 0, text)
+        c.drawCentredString(0, 0, text)
         c.restoreState()
         c.save()
 
@@ -20,7 +25,7 @@ def Watermark(inputFile, outputFile, text):
         watermark_pdf = PdfReader(packet)
         watermark_page = watermark_pdf.pages[0]
 
-        reader = PdfReader(inputFile)
+        
         writer = PdfWriter()
 
         for page in reader.pages:
