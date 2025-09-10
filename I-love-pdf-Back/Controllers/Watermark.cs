@@ -8,8 +8,8 @@ namespace I_love_pdf.Controllers
     [ApiController]
     public class Watermark : ControllerBase
     {
-        [HttpPost("Watermark")]
-        public async Task<IActionResult> WatermarkPdf(List<IFormFile> files,  string text)
+        [HttpPost("Watermark-Pdf")]
+        public async Task<IActionResult> WatermarkPdf(List<IFormFile> files, [FromForm] string text)
         {
             if (files == null || files.Count == 0)
             {
