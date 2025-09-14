@@ -93,21 +93,25 @@ const Home = () => {
       icon={page_number}
       title = "Page numbers" 
       text="Add page numbers into PDFs with ease. Choose your positions, dimensions, typography."
+      route={'/pagenumber'}
         />
       <Card 
       icon={rotate}
       title = "Rotate PDF" 
       text="Rotate your PDFs the way you need them. You can even rotate multiple PDFs at once!"
+      route={'/rotate'}
         />
       <Card 
       icon={protect}
       title = "Protect PDF" 
       text="Protect PDF files with a password. Encrypt PDF documents to prevent unauthorized access."
+      route={'/protect'}
         />
       <Card 
       icon={unlock}
       title = "Unlock PDF" 
       text="Remove PDF password security, giving you the freedom to use your PDFs as you want."
+      route={'/unlock'}
         />
       </div>
     </>

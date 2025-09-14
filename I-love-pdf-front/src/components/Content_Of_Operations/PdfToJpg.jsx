@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-const Word_to_pdf = () => {
+
+const PdfToJpg = () => {
   const [success, setSuccess] = useState(false);
 
   const handleFileUpload = async (event) => {
@@ -8,29 +9,30 @@ const Word_to_pdf = () => {
     if (!file) return;
 
     const formData = new FormData();
-    formData.append("files", file);
+    formData.append("files", file); 
 
     try {
       const response = await axios.post(
-        "http://localhost:5147/api/WordToPdf/convert-word-to-pdf",
+        "http://localhost:5147/api/PdfToJpg/convert-pdf-to-jpg",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
-          responseType: "blob",
+          responseType: "blob", 
         }
       );
+
 
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "Converted.pdf");
+      link.setAttribute("download", "images.zip");
       document.body.appendChild(link);
       link.click();
       link.remove();
 
       setSuccess(true);
     } catch (error) {
-      alert("Error converting file: ", error);
+      alert("Error converting file:", error);
     }
   };
 
@@ -40,17 +42,17 @@ const Word_to_pdf = () => {
         <div className="flex flex-col justify-center items-center p-3 mt-6">
           <div className="flex flex-col justify-center items-center p-3">
             <h1 className="font-bold text-[42px] text-[#33333b]">
-              WORD to PDF Converter
+              PDF to JPG Converter
             </h1>
             <p className="text-[22px] text-gray-700">
-              Make DOC and DOCX files easy to read by converting them to PDF.
+            Convert each PDF page into a JPG or extract all images contained in a PDF.
             </p>
           </div>
           <div className="mt-5 flex flex-col justify-center items-center">
             <label className="cursor-pointer">
               <input
                 type="file"
-                accept="application/docx"
+                accept="application/pdf"
                 hidden
                 onChange={handleFileUpload}
               />
@@ -64,11 +66,12 @@ const Word_to_pdf = () => {
       ) : (
         <div className="flex flex-col justify-center items-center p-3">
           <h1 className="font-bold text-[42px] mt-[200px] text-[#33333b]">
-            WORD to PDF Successfully
+          PDF to JPG Successfully
           </h1>
         </div>
       )}
     </>
   );
 };
-export default Word_to_pdf;
+
+export default PdfToJpg;

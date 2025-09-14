@@ -9,17 +9,18 @@ import Compress from "./components/Content_Of_Operations/Compress";
 import Word_to_pdf from "./components/Content_Of_Operations/Word_to_pdf";
 import Pdf_to_word from "./components/Content_Of_Operations/Pdf_to_word";
 import Pdf_to_excel from "./components/Content_Of_Operations/pdf_to_excel";
-import Pdf_to_jpg from "./components/Content_Of_Operations/Pdf_to_jpg";
+import PdfToJpg from "./components/Content_Of_Operations/PdfToJpg";
 import Jpg_to_pdf from "./components/Content_Of_Operations/Jpg_to_pdf";
 import Pdf_to_ppt from "./components/Content_Of_Operations/Pdf_to_ppt";
 import Excel_to_pdf from "./components/Content_Of_Operations/Excel_to_pdf";
-import Watermark from "./components/Content_Of_Operations/Wstermark";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Layout from "./components/Layout";
 import PageNumber from "./components/Content_Of_Operations/PageNumber";
 import Rotate from "./components/Content_Of_Operations/Rotate";
-
+import Watermark from "./components/Content_Of_Operations/Watermark";
+import ProtectPdf from "./components/Content_Of_Operations/ProtectPdf";
+import UnlockPdf from "./components/Content_Of_Operations/UnlockPdf";
 // import { pdfjs } from "react-pdf";
 // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -36,13 +37,15 @@ const App = () => {
           <Route path="/wordtopdf" element={<Word_to_pdf />} />
           <Route path="/pdftoword" element={<Pdf_to_word />} />
           <Route path="/pdftoexcel" element={<Pdf_to_excel />} />
-          <Route path="/pdftojpg" element={<Pdf_to_jpg />} />
+          <Route path="/pdftojpg" element={<PdfToJpg />} />
           <Route path="/jpgtopdf" element={<Jpg_to_pdf />} />
           <Route path="/pdftoppt" element={<Pdf_to_ppt />} />
           <Route path="/exceltopdf" element={<Excel_to_pdf />} />
-          <Route path="/watermark" element={<Watermark />} />
           <Route path="/pagenumber" element={<PageNumber />} />
           <Route path="/rotate" element={<Rotate />} />
+          <Route path="/watermark" element={<Watermark />} />
+          <Route path="/protect" element={<ProtectPdf />} />
+          <Route path="/unlock" element={<UnlockPdf />} />
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
