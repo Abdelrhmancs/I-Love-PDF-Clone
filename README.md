@@ -1,8 +1,8 @@
-# 📄 I Love PDF Clone  
+#  I Love PDF Clone  
 
 A full-stack PDF tools application that provides a wide range of PDF operations similar to *I Love PDF*.  
 
-## 🚀 Features  
+##  Features  
 - **Merge PDF** – Combine multiple PDFs in the order you want.  
 - **Split PDF** – Extract specific pages or split entire sets into new files.  
 - **Compress PDF** – Reduce file size while keeping high quality.  
@@ -17,7 +17,7 @@ A full-stack PDF tools application that provides a wide range of PDF operations 
 - **Protect PDF** – Add password encryption for security.  
 - **Unlock PDF** – Remove password protection.  
 
-## 🛠️ Tech Stack  
+##  Tech Stack  
 - **Backend**: .NET Core (C#)  
 - **Frontend**: React.js  
 - **Scripts**: Python (PDF processing automation)  
